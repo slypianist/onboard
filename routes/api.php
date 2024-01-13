@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::middleware('api')->namespace('App\Http\Controllers')->group(function () {
+
+    Route::prefix('v1')->group(function () {
+       // Route::get('test', [TestController::class, 'index']);
+       include(base_path('routes/api/v1.php'));
+
+        });
+
+    });
